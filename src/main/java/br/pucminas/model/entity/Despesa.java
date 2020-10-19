@@ -3,19 +3,24 @@ package br.pucminas.model.entity;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-import javax.persistence.*;
-import javax.validation.constraints.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
 import org.springframework.format.annotation.NumberFormat;
 import org.springframework.format.annotation.NumberFormat.Style;
-import org.springframework.format.annotation.DateTimeFormat.ISO;
 
 @SuppressWarnings("serial")
 @Entity
-@Table(name = "CATEGORIAS")
-public class Despesa extends AbstractEntity<Long>{
-	
+@Table(name = "DESPESAS")
+public class Despesa extends AbstractEntity<Long> {
 	@NotBlank
 	@Size(min=3, max=60)
 	@Column(name="descricao", nullable=false, unique=true, length=60)
@@ -67,5 +72,4 @@ public class Despesa extends AbstractEntity<Long>{
 	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
 	}
-	
 }

@@ -5,7 +5,6 @@ import java.util.List;
 import br.pucminas.model.entity.Despesa;
 
 public interface IDespesaDao {
-
 	void save(Despesa despesa);
 	
 	void update(Despesa despesa);
@@ -15,5 +14,4 @@ public interface IDespesaDao {
 	Despesa findById(Long id);
 	
 	List<Despesa> findAll(); 
-	
 }

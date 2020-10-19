@@ -37,13 +37,13 @@ public class CategoriaController {
 	public String salvar(@Valid Categoria categoria, BindingResult result, RedirectAttributes attr) {	
 		
 		if(result.hasErrors()) {
-			return "categoria/cadastro";
+			return "categorias/cadastro";
 		}
 		
 		service.salvar(categoria);
 		attr.addFlashAttribute("success", "Categoria inserida com sucesso");
 		
-		return "redirect /categoria/listar";
+		return "redirect /categorias/listar";
 	}
 	
 	@GetMapping("/editar/{id}")

@@ -5,7 +5,7 @@ import java.util.List;
 import br.pucminas.model.entity.Despesa;
 
 public interface IDespesaService {
-	
+
 	void salvar(Despesa despesa);
 	
 	void editar(Despesa despesa);
@@ -15,5 +15,5 @@ public interface IDespesaService {
 	Despesa buscarPorId(Long id);
 	
 	List<Despesa> buscarTodos(); 
-
+	
 }

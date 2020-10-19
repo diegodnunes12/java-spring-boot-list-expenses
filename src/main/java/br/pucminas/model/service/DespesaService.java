@@ -10,11 +10,10 @@ import br.pucminas.model.dao.DespesaDao;
 import br.pucminas.model.entity.Despesa;
 
 @Service @Transactional(readOnly = false)
-public class DespesaService implements IDespesaService {
-	
+public class DespesaService implements IDespesaService{
 	@Autowired
 	private DespesaDao dao;
-
+	
 	@Override
 	public void salvar(Despesa despesa) {
 		dao.save(despesa);
@@ -31,7 +30,7 @@ public class DespesaService implements IDespesaService {
 	}
 
 	@Override
-	public Despesa buscarPorId(Long id) {
+	public Despesa buscarPorId(Long id) {		
 		return dao.findById(id);
 	}
 
@@ -39,5 +38,4 @@ public class DespesaService implements IDespesaService {
 	public List<Despesa> buscarTodos() {
 		return dao.findAll();
 	}
-
 }
