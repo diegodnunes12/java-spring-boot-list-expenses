@@ -37,19 +37,19 @@ public class CategoriaController {
 	public String salvar(@Valid Categoria categoria, BindingResult result, RedirectAttributes attr) {	
 		
 		if(result.hasErrors()) {
-			return "categorias/cadastro";
+			return "categoria/cadastro";
 		}
 		
 		service.salvar(categoria);
 		attr.addFlashAttribute("success", "Categoria inserida com sucesso");
 		
-		return "redirect /categorias/listar";
+		return "redirect:/categorias/listar";
 	}
 	
 	@GetMapping("/editar/{id}")
-	public String editar(@PathVariable("id") Long id, ModelMap model) {
+	public String preEditar(@PathVariable("id") Long id, ModelMap model) {
 		model.addAttribute("categoria", service.buscarPorId(id));
-		return "categoria/editar";
+		return "categoria/cadastro";
 	}
 	
 	@PostMapping("/editar")
@@ -62,7 +62,7 @@ public class CategoriaController {
 		service.editar(categoria);
 		attr.addFlashAttribute("success", "Categoria alterada com sucesso");
 		
-		return "redirect /categoria/listar";
+		return "redirect:/categorias/listar";
 	}
 	
 	@GetMapping("/excluir/{id}")
@@ -70,7 +70,7 @@ public class CategoriaController {
 		
 		service.excluir(id);		
 		attr.addAttribute("success", "Categoria excluida com sucesso");
-		return "redirect /categoria/listar";
+		return "redirect:/categorias/listar";
 	}
 
 }
